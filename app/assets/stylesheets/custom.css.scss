@@ -3,6 +3,10 @@ $navbar-default-bg: #172336;
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.container {
+	width: 85%;
+}
+
 .center{
 	text-align: center;
 }
@@ -54,7 +58,7 @@ $navbar-default-bg: #172336;
 }
 
 footer {
-  margin-top: 45px;
+  margin-top: 150px;
   padding-top: 5px;
   border-top: 1px solid #eaeaea;
   color: #777;
