@@ -3,7 +3,14 @@ require 'test_helper'
 class BookTest < ActiveSupport::TestCase
 
 	def setup
-       @book = Book.new(name: "Adventure Jack", description: "Adventure Jack is a great adventure book")
+	   @author = Author.create!(authorname: "mashrur" , email: "mashrur@example.com") 
+       @book = @author.books.build(name: "Adventure Jack", description: "Adventure Jack is a great adventure book")
+    end
+
+
+    test "book without author should be invalid" do 
+        @book.author_id = nil
+        assert_not @book.valid?
     end
 
     test "book should be valid" do
@@ -29,7 +36,6 @@ class BookTest < ActiveSupport::TestCase
     	@book.description = "a" * 501
     	assert_not @book.valid?
     end
-
 
 
 
