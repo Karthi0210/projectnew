@@ -24,4 +24,13 @@ class BooksTest < ActionDispatch::IntegrationTest
   end
 
 
+  #test "should get books show" do
+   # get book_path(@book)
+    #assert_template 'books/show'
+    #assert_match @book.name , response.body
+    #assert_match @book.description , response.body
+    #assert_match @author.authorname , response.body
+  #end
+
+
 end

@@ -1,0 +1,25 @@
+<%= render 'shared/page_title', title: @book.name %>
+
+<div class="well col-md-8 col-md-offset-2">
+  <h4 class="center description"><strong>Description: </strong></h4>
+  <hr />
+  <%= simple_format(@book.description) %>
+  <hr />
+  <div class="pull-right">
+    <p class="center">
+      <em>Authored by:</em>
+    </p>
+    <p class = "center">
+      <%= link_to gravatar_for(@book.author), books_path %>
+    </p>
+    <p class = "center">
+      <small> <%= @book.author.authorname.capitalize %></small>
+      <!--<div class ="pull-right"><%= time_ago_in_words(@book.created_at) %> ago</div> -->
+    </p>
+    <p>
+      <!--<small><%= @book.author.authorname %></small>-->
+      <div class= "pull-right">authored: <%= time_ago_in_words(@book.created_at) %> ago
+      </div>
+    </p>
+  </div>
+</div>
