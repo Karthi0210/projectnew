@@ -22,4 +22,11 @@
       </div>
     </p>
   </div>
+  <div class="book-actions">
+    <%= link_to "Edit this book" , edit_book_path(@book) , class: "btn btn-xs btn-warning" %>
+    <%= link_to "Delete this book", book_path(@book), method: :delete,
+                                    data: { confirm: "Are you sure you want to delete?" },
+                                    class: "btn btn-xs btn-danger" %>
+</div>  
+  </div>
 </div>
