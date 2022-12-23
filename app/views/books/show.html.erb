@@ -27,6 +27,7 @@
     <%= link_to "Delete this book", book_path(@book), method: :delete,
                                     data: { confirm: "Are you sure you want to delete?" },
                                     class: "btn btn-xs btn-danger" %>
-</div>  
+    <%= link_to "Return to books listing", books_path , class: "btn btn-xs btn-primary" %>
+  </div>  
   </div>
 </div>
