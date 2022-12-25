@@ -3,7 +3,7 @@ require 'test_helper'
 class AuthorTest < ActiveSupport::TestCase
 
   def setup
-  	@author = Author.new(authorname: "john" , email: "john@example.com")
+  	@author = Author.new(authorname: "mashrur" , email: "mashrur@example.com" , password: "password", password_confirmation: "password")
   end
 
   test "Should be vaild" do
@@ -57,7 +57,17 @@ class AuthorTest < ActiveSupport::TestCase
   @author.email = mixed_email
   @author.save
   assert_equal mixed_email.downcase, @author.reload.email 
-end
+  end
+
+  test "password should be present" do
+    @author.password = @author.password_confirmation = " "
+    assert_not @author.valid?
+  end
+  
+  test "password should be atleast 5 character" do
+    @author.password = @author.password_confirmation = "x" * 4
+    assert_not @author.valid?
+  end
 
 
 end

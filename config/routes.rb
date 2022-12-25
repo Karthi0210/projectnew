@@ -9,6 +9,9 @@ Rails.application.routes.draw do
 
  resources :books
 
+ get '/signup', to: 'authors#new'
+ resources :authors , except: [:new]
+
 
 
 end

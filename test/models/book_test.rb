@@ -3,7 +3,7 @@ require 'test_helper'
 class BookTest < ActiveSupport::TestCase
 
 	def setup
-	   @author = Author.create!(authorname: "mashrur" , email: "mashrur@example.com") 
+	   @author = Author.create!(authorname: "mashrur" , email: "mashrur@example.com", password: "password", password_confirmation: "password") 
        @book = @author.books.build(name: "Adventure Jack", description: "Adventure Jack is a great adventure book")
     end
 
