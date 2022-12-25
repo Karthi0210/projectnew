@@ -2,7 +2,7 @@ class AuthorsController < ApplicationController
   
 
   def index
-    @authors = Author.all
+    @authors = Author.paginate(page: params[:page], per_page: 5)
   end
 
 
@@ -23,6 +23,7 @@ class AuthorsController < ApplicationController
 
     def show
       @author = Author.find(params[:id])
+      @author_books = @author.books.paginate(page: params[:page], per_page: 5)
     end
 
     def edit

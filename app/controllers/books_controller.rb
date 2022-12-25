@@ -3,7 +3,7 @@ class BooksController <ApplicationController
 	before_action :set_book , only: [:show, :edit, :update]
 
 	def index
-		@books = Book.all
+		@books = Book.paginate(page: params[:page], per_page: 5)
 	end
 
 	def show

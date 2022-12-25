@@ -1,6 +1,7 @@
 <%= render 'shared/page_title', title: "Showing all Authors" %>
 
 <div align="center">
+  <%= will_paginate %>
   <% @authors.each do |author| %>
     <ul class="listing">
       <div class="row">
@@ -14,4 +15,5 @@
       </div>
     </ul>      
   <% end %>
+  <%= will_paginate %>
 </div>

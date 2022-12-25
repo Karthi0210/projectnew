@@ -6,4 +6,13 @@
 </div>
 
 <h4 align="center"><%= @author.authorname %>'s books</h4>
-<%= render 'books/book', obj: @author.books %>
+
+<div align="center">
+  <%= will_paginate @author_books %>
+</div>
+
+<%= render 'books/book', obj: @author_books %>
+
+<div align="center">
+  <%= will_paginate @author_books %>
+</div>
