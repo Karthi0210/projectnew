@@ -8,6 +8,6 @@ class Author < ApplicationRecord
 
   has_many :books
   has_secure_password
-  validates :password, presence: true, length: { minimum: 5 }
+  validates :password, presence: true, length: { minimum: 5 },allow_nil:true
 
 end
