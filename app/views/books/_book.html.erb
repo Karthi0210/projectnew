@@ -1,0 +1,19 @@
+<% obj.each do |book| %>
+  <div class="row">
+  	<div class="col-md-2">
+  		<section class="author_info center">
+        <%= gravatar_for(book.author, size: 120) %>
+  			
+  		</section>
+  	</div>
+  	<div class="col-md-8 well">
+  	 <h4> <%= link_to book.name, book_path(book) %></h4>
+     <p> <%= truncate(book.description , length: 150) %> </p>
+     <p>
+      <span class="quiet"><small>Created <%= time_ago_in_words(book.created_at) %> ago </small> </span>
+     </p>
+    </div>
+  </div>
+
+
+<% end %>
