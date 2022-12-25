@@ -40,6 +40,13 @@ class AuthorsController < ApplicationController
       end  
     end
 
+    def destroy
+      @author = Author.find(params[:id])
+      @author.destroy
+      flash[:danger] = "Author and all their associated books have been deleted"
+      redirect_to authors_path
+    end
+
   private
   
   def author_params
