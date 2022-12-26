@@ -7,6 +7,7 @@ class Book < ApplicationRecord
   default_scope -> { order(updated_at: :desc) }
   has_many :book_genres
   has_many :genres, through: :book_genres
+  has_many :comments, dependent: :destroy
   
 
 end
