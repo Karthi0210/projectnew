@@ -18,6 +18,7 @@ class AuthorsController < ApplicationController
     @author = Author.new(author_params)
     if @author.save
       session[:author_id] = @author.id
+      cookies.signed[:author_id] = @author.id
       flash[:success] = "Welcome #{@author.authorname} to Funreads App!"
       redirect_to author_path(@author)
      else

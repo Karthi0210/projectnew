@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
    author = Author.find_by(email: params[:session][:email].downcase)
    if author && author.authenticate(params[:session][:password])
       session[:author_id] = author.id
+      cookies.signed[:author_id] = author.id
       flash[:success] = "You have successfully logged in"
       redirect_to author
    else

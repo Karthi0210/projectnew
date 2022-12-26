@@ -20,5 +20,7 @@ Rails.application.routes.draw do
 
  resources :genres, except: [:destroy]
 
+ mount ActionCable.server => '/cable'
+
 
 end

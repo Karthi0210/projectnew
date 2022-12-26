@@ -6,8 +6,9 @@ class CommentsController < ApplicationController
     @comment = @book.comments.build(comment_params)
     @comment.author = current_author
     if @comment.save
-      flash[:success] = "Comment was created successfully"
-      redirect_to book_path(@book)
+      ActionCable.server.broadcast "comments", render(partial: 'comments/comment', object: @comment)
+      #flash[:success] = "Comment was created successfully"
+      #redirect_to book_path(@book)
     else
       flash[:danger] = "Comment was not created"
       redirect_to :back
