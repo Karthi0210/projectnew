@@ -8,8 +8,11 @@
   	<div class="col-md-8 well">
   	 <h4> <%= link_to book.name, book_path(book) %></h4>
      <p> <%= truncate(book.description , length: 150) %> </p>
+     <% if book.genres.any? %>
+       <p>Genres: <%= render book.genres %></p>
+     <% end %>
      <p>
-      <span class="quiet"><small>Created <%= time_ago_in_words(book.created_at) %> ago </small> </span>
+      <span class="quiet"><small>Created <%= time_ago_in_words(book.created_at) %> ago by <%= book.author.authorname.capitalize %></small> </span>
      </p>
      <% if logged_in? && (current_author == book.author || current_author.admin?) %>
         <div class="book-actions">

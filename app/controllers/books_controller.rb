@@ -54,7 +54,7 @@ class BooksController <ApplicationController
 	   end
 
 	   def  book_params
-	   	params.require(:book).permit(:name, :description)
+	   	params.require(:book).permit(:name, :description, genre_ids: [])
        end
 
        def require_same_user

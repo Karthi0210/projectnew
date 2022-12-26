@@ -5,12 +5,16 @@
   <hr />
   <%= simple_format(@book.description) %>
   <hr />
+  <% if @book.genres.any? %>
+    <p>Genres: <%= render @book.genres %></p>
+  <% end %>
+  <hr />
   <div class="pull-right">
     <p class="center">
       <em>Authored by:</em>
     </p>
     <p class = "center">
-      <%= link_to gravatar_for(@book.author), books_path %>
+      <%= link_to gravatar_for(@book.author), author_path(@book.author) %>
     </p>
     <p class = "center">
       <small> <%= @book.author.authorname.capitalize %></small>

@@ -5,14 +5,18 @@
   </div>
 </div>
 
-<h4 align="center"><%= @author.authorname %>'s books</h4>
+<% if @author.books.count !=0 %> 
+  <h4 align="center"><%= @author.authorname %>'s books</h4>
 
-<div align="center">
-  <%= will_paginate @author_books %>
-</div>
+  <div align="center">
+    <%= will_paginate @author_books %>
+  </div>
 
-<%= render 'books/book', obj: @author_books %>
+  <%= render 'books/book', obj: @author_books %>
 
-<div align="center">
-  <%= will_paginate @author_books %>
-</div>
+  <div align="center">
+    <%= will_paginate @author_books %>
+  </div>
+<% else %>
+  <h4 align = "center">No books yet </h4>
+<% end %>
