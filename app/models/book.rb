@@ -5,6 +5,8 @@ class Book < ApplicationRecord
   belongs_to :author
   validates :author_id, presence: true
   default_scope -> { order(updated_at: :desc) }
+  has_many :book_genres
+  has_many :genres, through: :book_genres
   
 
 end

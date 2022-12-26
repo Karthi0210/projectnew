@@ -9,8 +9,10 @@
           <li><%= link_to gravatar_for(author), author_path(author) %></li>
           <li class="author-title"><%= link_to author.authorname.capitalize,  author_path(author) %></li>
           <li><small><%= pluralize(author.books.count, "book") if author.books %></small></li>
-          <li><%= link_to "Delete this author", author_path(author), method: :delete, 
-                  data: {confirm: "Are you sure you want to delete this author and all associated books?"} %></li>
+          <% if logged_in? and current_author.admin? && !author.admin %>
+             <li><%= link_to "Delete this author", author_path(author), method: :delete, 
+                    data: {confirm: "Are you sure you want to delete this author and all associated books?"} %></li>
+          <% end%>
         </div>
       </div>
     </ul>      

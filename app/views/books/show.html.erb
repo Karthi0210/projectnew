@@ -23,7 +23,7 @@
     </p>
   </div>
   <div class="book-actions">
-    <% if logged_in? && current_author == @book.author %>
+    <% if logged_in? && (current_author == @book.author || current_author.admin?) %>
       <%= link_to "Edit this book" , edit_book_path(@book) , class: "btn btn-xs btn-warning" %>
       <%= link_to "Delete this book", book_path(@book), method: :delete,
                                       data: { confirm: "Are you sure you want to delete?" },

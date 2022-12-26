@@ -2,6 +2,7 @@ class AuthorsController < ApplicationController
 
   before_action :set_author, only: [:show, :edit, :update, :destroy]
   before_action :require_same_user, only: [:edit, :update, :destroy]
+  before_action :require_admin, only: [:destroy]
 
   def index
     @authors = Author.paginate(page: params[:page], per_page: 5)
@@ -41,9 +42,11 @@ class AuthorsController < ApplicationController
     end
 
     def destroy
-      @author.destroy
-      flash[:danger] = "Author and all their associated books have been deleted"
-      redirect_to authors_path
+      if !@chef.admin?
+       @author.destroy
+       flash[:danger] = "Author and all their associated books have been deleted"
+       redirect_to authors_path
+      end
     end
 
   private
@@ -57,10 +60,17 @@ class AuthorsController < ApplicationController
   end
 
    def require_same_user
-      if current_author != @author
+      if current_author != @author and !current_author.admin?
         flash[:danger] = "You can only edit or delete your own account"
         redirect_to authors_path
       end
+   end
+
+   def require_admin
+    if logged_in? & !current_author.admin?
+      flash[:danger] = "Only admin users can perform that action"
+      redirect_to root_path
+    end
    end
 
 

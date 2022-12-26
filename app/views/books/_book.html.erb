@@ -2,8 +2,7 @@
   <div class="row">
   	<div class="col-md-2">
   		<section class="author_info center">
-        <%= gravatar_for(book.author, size: 120) %>
-  			
+        <%= gravatar_for(book.author, size: 120) %> 			
   		</section>
   	</div>
   	<div class="col-md-8 well">
@@ -12,7 +11,7 @@
      <p>
       <span class="quiet"><small>Created <%= time_ago_in_words(book.created_at) %> ago </small> </span>
      </p>
-     <% if logged_in? && current_author == book.author %>
+     <% if logged_in? && (current_author == book.author || current_author.admin?) %>
         <div class="book-actions">
           <%= link_to "Edit this book", 
                       edit_book_path(book), 
