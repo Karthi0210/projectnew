@@ -12,7 +12,8 @@
        <p>Genres: <%= render book.genres %></p>
      <% end %>
      <p>
-      <span class="quiet"><small>Created <%= time_ago_in_words(book.created_at) %> ago by <%= book.author.authorname.capitalize %></small> </span>
+      <span class="quiet"><small>Created <%= time_ago_in_words(book.created_at) %> ago by <%= book.author.authorname.capitalize %>
+                                                  | <%= pluralize(book.comments.count, 'Comment') %></small> </span>
      </p>
      <% if logged_in? && (current_author == book.author || current_author.admin?) %>
         <div class="book-actions">

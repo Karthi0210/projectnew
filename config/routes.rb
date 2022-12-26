@@ -7,7 +7,9 @@ Rails.application.routes.draw do
  #post 'books', to: 'recipes#create'
 
 
- resources :books
+ resources :books do
+    resources :comments, only: [:create]
+ end
 
  get '/signup', to: 'authors#new'
  resources :authors , except: [:new]
