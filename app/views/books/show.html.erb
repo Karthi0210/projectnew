@@ -1,7 +1,7 @@
-<%= render 'shared/page_title', title: @book.name %>
+<div class="heading"><%= render 'shared/page_title', title: @book.name %></div>
 
-<div class="well col-md-8 col-md-offset-2">
-  <h4 class="center description"><strong>Description: </strong></h4>
+<div class="well col-md-8 col-md-offset-2 row">
+  <h4 class="center description "><strong>Description: </strong></h4>
   <hr />
   <%= simple_format(@book.description) %>
   <hr />
@@ -29,9 +29,7 @@
   <div class="book-actions">
     <% if logged_in? && (current_author == @book.author || current_author.admin?) %>
       <%= link_to "Edit this book" , edit_book_path(@book) , class: "btn btn-xs btn-warning" %>
-      <%= link_to "Delete this book", book_path(@book), method: :delete,
-                                      data: { confirm: "Are you sure you want to delete?" },
-                                      class: "btn btn-xs btn-danger" %>
+      <%= link_to "Delete this book", book_path(@book), method: :delete, data: { confirm: "This book and their respective comments will be deleted permanently.Are you sure you want to delete?"}, class: "btn btn-xs btn-danger" %>
     <% end %>
     <%= link_to "Return to books listing", books_path , class: "btn btn-xs btn-primary" %>
   </div>  

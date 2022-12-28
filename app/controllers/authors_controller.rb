@@ -45,7 +45,7 @@ class AuthorsController < ApplicationController
     def destroy
       if !@chef.admin?
        @author.destroy
-       flash[:danger] = "Author and all their associated books have been deleted"
+       flash[:danger] = "Author and all their associated books and chats and comments have been deleted"
        redirect_to authors_path
       end
     end

@@ -3,26 +3,29 @@
 <div class="jumbotron center">
 <h1> Welcome to Fun-Reads </h1>
 <h2> Your one stop to read books !!! </h2>
-<p><%= link_to "Sign Up Today!!!", signup_path, class: "btn btn-danger btn-lg btn-xlarge" %></p>
+<p><%= link_to "SIGN UP !!!", signup_path, class: " btn btn-lg glow-on-hover " %></p>
 </div>
 
 
 <div class="row">
   <div class="col-lg-4">
-    <h2>Safari bug warning!</h4>
-    <p class="text-danger">An author is the writer of a book, article, play, or mostly written work.</p> <p> A broader definition of the word "author" states:"An author is "the person who originated or gave existence to anything" and whose authorship determines responsibility for what was created."</p> <p>Typically, the first owner of a copyright is the person who created the work, i.e. the author. If more than one person created the work (i.e., multiple authors), then a case of joint authorship takes place.
+    <h2 class="heading">Authors!</h4>
+    <p class="text-danger">An author is the writer of a book, article, play, or mostly written work.</p> <p> A broader definition of the word "author" states:"An author is "the person who originated or gave existence to anything" and whose authorship determines responsibility for what was created."</p> <p>Typically, the first owner of a copyright is the person who created the work, i.e. the author. If more than one person created the work (i.e., multiple authors), then a case of joint authorship takes place.Authors may portion out different rights they hold to different parties, at different times, and for different purposes or uses.
     </p>
-    <p><a class="btn btn-primary btn-xlarge" href="#" role="button">View Authors &raquo;</a></p>
+    <p><%= link_to "View Authors >>", authors_path, class:"btn btn-primary btn-lg" %> </p>
   </div>
   <div class="col-lg-4">
-    <h2>Heading</h2>
-    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-    <p><a class="btn btn-primary btn-xlarge" href="#" role="button">View details &raquo;</a></p>
+    <h2 class="heading">Books!!</h2>
+    <p class="text-danger">A book is a medium for recording information in the form of writing or images, typically composed of many pages (made of vellum,paper,papyrus,parchment) bound together and protected by a cover. </p>
+    <p>As an intellectual object, a book is prototypically a composition of such great length that it takes a considerable investment of time to compose and still considered as an investment of time to read.</p><p> In a restricted sense, a book is a self-sufficient section or part of a longer composition, a usage reflecting that, in antiquity, long works had to be written on several scrolls and each scroll had to be identified by the book it contained.</p>
+    <p ><%= link_to "View Books >>", books_path ,class: "btn btn-primary btn-lg"%></p>
  </div>
   <div class="col-lg-4">
-    <h2>Heading</h2>
-    <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
-    <p><a class="btn btn-primary btn-xlarge" href="#" role="button">View details &raquo;</a></p>
+    <h2 class="heading">Book Genres!!!</h2>
+    <p class="text-danger">What Are Book Genres? Every work of literature can be divided into a genre with its own elements, tone, style, and storytelling devices. </p>
+    <p>Every reader has preferences for books, and all of them fall into genres or sub-genres. Whether you are interested in dystopian, young adult, sci-fi, self-help, or historical fiction books, you probably prefer certain genres.</p>
+    <p>A genre refers to the types of books that fall into that category. They are categorized by their style, tone, time period, target audience, and numerous other factors. These are the factors that differentiate fiction from nonfiction.</p>
+    <p><%= link_to "View Genres >>", genres_path , class:"btn btn-primary btn-lg" %></p>
   </div>
 </div>
 
