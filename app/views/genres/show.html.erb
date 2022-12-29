@@ -2,11 +2,11 @@
 
 
 <% if @genre.books.count !=0 %> 
-  <h4 align="center">Books containing <%= @genre.name %></h4>
+ <!-- <h4 align="center">Drabbles containing <%= @genre.name %></h4> 
 
   <div align="center">
     <%= will_paginate @genre_books %>
-  </div>
+  </div> -->
 
   <%= render 'books/book', obj: @genre_books %>
 
@@ -14,5 +14,5 @@
     <%= will_paginate @genre_books %>
   </div>
 <% else %>
-  <h4 align = "center">No books yet </h4>
+  <h4 align = "center">No drabbles yet </h4>
 <% end %>

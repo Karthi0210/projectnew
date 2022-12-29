@@ -98,7 +98,7 @@ footer ul li {
 
 
 .well a{
-	color: #073B15;
+	color: #52AA6A;
 }
 
 .author_info{
@@ -186,14 +186,14 @@ footer ul li {
 }
 
 .messages {
-  border: 1px solid #eaeaea;
-  height: 16em;
+  border: 5px solid #eaeaea;
+  height: 25em;
   position: relative;
   overflow: auto;
 }
 
 .sc{
-  font-size: 17px;
+  font-size: 20px;
   overflow: scroll;
   height: 13em;
 }
@@ -214,7 +214,7 @@ h1, .h1 {
 }
 
 .progress-bar-info {
-    background-color: #c67abe;
+    background-color: #dddc818a;
 }
 
 .badge {
@@ -300,7 +300,7 @@ h4, .h4 {
 }
 
 .scn{
-  font-size: 17px;
+  font-size: 19px;
 }
 
 .btn-xs, .btn-group-xs > .btn {
@@ -311,5 +311,8 @@ h4, .h4 {
 }
 
 
-
+.ri {
+    font-size: 85%;
+    float: right;
+}
 

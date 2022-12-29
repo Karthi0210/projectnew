@@ -6,7 +6,7 @@
 </div>
 
 <% if @author.books.count !=0 %> 
-  <h4 align="center"><%= @author.authorname %>'s books</h4>
+  <h4 align="center"><%= @author.authorname %>'s drabbles</h4>
 
   <div align="center">
     <%= will_paginate @author_books %>
@@ -18,5 +18,5 @@
     <%= will_paginate @author_books %>
   </div>
 <% else %>
-  <h4 align = "center">No books yet </h4>
+  <h4 align = "center">No drabbles yet </h4>
 <% end %>

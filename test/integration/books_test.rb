@@ -4,7 +4,7 @@ class BooksTest < ActionDispatch::IntegrationTest
 
 
   def setup
-    @author = Author.create!(authorname: "mashrur" , email: "mashrur@example.com")
+    @author = Author.create!(authorname: "mashrur" , email: "mashrur@example.com",password: "password", password_confirmation: "password")
     @book = Book.create(name: "Pale Sky", description: "Life of a depressed young man." , author: @author)
     @book2 = @author.books.build(name: "The Anubis Gates", description: "Brendan Doyle, a specialist in the work of the early-nineteenth century poet William Ashbless, reluctantly accepts an invitation from a millionaire to act as a guide to time-travelling tourists.")
     @book2.save

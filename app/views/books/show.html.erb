@@ -1,7 +1,7 @@
 <div class="heading"><%= render 'shared/page_title', title: @book.name %></div>
 
 <div class="well col-md-8 col-md-offset-2 row">
-  <h4 class="center description "><strong>Description: </strong></h4>
+  <h4 class="center description "><strong>Drabble </strong></h4>
   <hr />
   <%= simple_format(@book.description) %>
   <hr />
@@ -17,7 +17,7 @@
       <%= link_to gravatar_for(@book.author), author_path(@book.author) %>
     </p>
     <p class = "center">
-      <small> <%= @book.author.authorname.capitalize %></small>
+       <%= @book.author.authorname.capitalize %>
       <!--<div class ="pull-right"><%= time_ago_in_words(@book.created_at) %> ago</div> -->
     </p>
     <p>
@@ -28,10 +28,10 @@
   </div>
   <div class="book-actions">
     <% if logged_in? && (current_author == @book.author || current_author.admin?) %>
-      <%= link_to "Edit this book" , edit_book_path(@book) , class: "btn btn-xs btn-warning" %>
-      <%= link_to "Delete this book", book_path(@book), method: :delete, data: { confirm: "This book and their respective comments will be deleted permanently.Are you sure you want to delete?"}, class: "btn btn-xs btn-danger" %>
+      <%= link_to "Edit this drabble" , edit_book_path(@book) , class: "btn btn-xs btn-warning" %>
+      <%= link_to "Delete this drabble", book_path(@book), method: :delete, data: { confirm: "This drabble and their respective comments will be deleted permanently.Are you sure you want to delete?"}, class: "btn btn-xs btn-danger" %>
     <% end %>
-    <%= link_to "Return to books listing", books_path , class: "btn btn-xs btn-primary" %>
+    <%= link_to "Return to drabbles listing", books_path , class: "btn btn-xs btn-primary" %>
   </div>  
   </div>
 </div>

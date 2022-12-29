@@ -1,6 +1,7 @@
 class AuthorsController < ApplicationController
 
   before_action :set_author, only: [:show, :edit, :update, :destroy]
+  before_action :require_user, only: [:edit]
   before_action :require_same_user, only: [:edit, :update, :destroy]
   before_action :require_admin, only: [:destroy]
 
@@ -13,6 +14,15 @@ class AuthorsController < ApplicationController
     @author = Author.new
   end
 
+  #def new
+  #if author_params
+   # create
+    #return
+  #end
+  #@author = Author.new
+  #render 'new'
+  #end 
+
   def create
 
     @author = Author.new(author_params)
@@ -23,6 +33,7 @@ class AuthorsController < ApplicationController
       redirect_to author_path(@author)
      else
       render 'new'
+     #redirect_to signup_path
      end
     end
 
@@ -31,6 +42,7 @@ class AuthorsController < ApplicationController
     end
 
     def edit
+
     end
   
     def update
@@ -43,9 +55,9 @@ class AuthorsController < ApplicationController
     end
 
     def destroy
-      if !@chef.admin?
+      if !@author.admin?
        @author.destroy
-       flash[:danger] = "Author and all their associated books and chats and comments have been deleted"
+       flash[:danger] = "Author and all their associated drabbles and chats and comments have been deleted"
        redirect_to authors_path
       end
     end
@@ -62,13 +74,13 @@ class AuthorsController < ApplicationController
 
    def require_same_user
       if current_author != @author and !current_author.admin?
-        flash[:danger] = "You can only edit or delete your own account"
+        flash[:danger] = "You can only edit your own account"
         redirect_to authors_path
       end
    end
 
    def require_admin
-    if logged_in? & !current_author.admin?
+    if logged_in? && !current_author.admin?
       flash[:danger] = "Only admin users can perform that action"
       redirect_to root_path
     end

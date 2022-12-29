@@ -2,7 +2,7 @@
   <div class="row">
   	<div class="col-md-2">
   		<section class="author_info center">
-        <%= gravatar_for(book.author, size: 120) %> 			
+        <%= link_to gravatar_for(book.author, size: 120)  , author_path(book.author) %> 			
   		</section>
   	</div>
   	<div class="col-md-8 well ">
@@ -17,11 +17,11 @@
      </p>
      <% if logged_in? && (current_author == book.author || current_author.admin?) %>
         <div class="book-actions">
-          <%= link_to "Edit this book", 
+          <%= link_to "Edit this drabble", 
                       edit_book_path(book), 
                               class: "btn btn-xs btn-warning" %>
-          <%= link_to "Delete this book", book_path(book),  method: :delete,
-                       data: { confirm: "The Book and their associated comments will be deleted permanently from this site.Are you sure you want to delete this book?" },class: "btn btn-xs btn-danger" %>
+          <%= link_to "Delete this drabble", book_path(book),  method: :delete,
+                       data: { confirm: "The Drabble and their associated comments will be deleted permanently from this site.Are you sure you want to delete this drabble?" },class: "btn btn-xs btn-danger" %>
         </div>
       <% end %>
     </div>

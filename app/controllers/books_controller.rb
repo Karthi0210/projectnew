@@ -2,7 +2,7 @@ class BooksController <ApplicationController
 
 	before_action :set_book , only: [:show, :edit, :update, :destroy]
 	before_action :require_user, except: [:index, :show]
-    before_action :require_same_user, only: [:edit, :update, :destroy]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
 
 	def index
 		@books = Book.paginate(page: params[:page], per_page: 5)
@@ -21,7 +21,7 @@ class BooksController <ApplicationController
 		@book = Book.new(book_params)
 		@book.author = current_author  
 		if @book.save
-			flash[:success] = "Book was created successfully"
+			flash[:success] = "Drabble was created successfully"
             redirect_to book_path(@book)
 		else
 			render 'new'
@@ -34,7 +34,7 @@ class BooksController <ApplicationController
 
 	def update
 		if @book.update(book_params)
-			 flash[:success] = "Book was updated successfully!"
+			 flash[:success] = "Drabble was updated successfully!"
              redirect_to book_path(@book)
 		else
 			render 'edit'
@@ -43,7 +43,7 @@ class BooksController <ApplicationController
 
 	def destroy
 		Book.find(params[:id]).destroy
-		flash[:success] = "Book deleted successfully!"
+		flash[:success] = "Drabble deleted successfully!"
 		redirect_to books_path
 	end
 
@@ -60,7 +60,7 @@ class BooksController <ApplicationController
 
        def require_same_user
         if current_author != @book.author and !current_author.admin?
-          flash[:danger] = "You can only edit or delete your own books"
+          flash[:danger] = "You can only edit or delete your own drabble"
           redirect_to books_path
         end  
        end

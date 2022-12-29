@@ -8,20 +8,20 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to "Funreads", root_path, class: "navbar-brand", id: "logo" %>
+      <%= link_to "Drabble-Reads", root_path, class: "navbar-brand", id: "logo" %>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="color-me"><%= link_to "Authors", authors_path %></li>
-        <li class="color-me"><%= link_to "All Books", books_path %></li>
+        <li class="color-me"><%= link_to "All Drabbles", books_path %></li>
         <% if logged_in? %>
-        <li class="color-me"><%= link_to "AuthorChat", chat_path %></li>
+        <li class="color-me"><%= link_to "Author-Space", chat_path %></li>
         <li class="dropdown color-me">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Books <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Drabbles <span class="caret"></span></a>
           <ul class="dropdown-menu scn">
-            <li><%= link_to "Create a new book", new_book_path %></li>
+            <li><%= link_to "Create a new drabble", new_book_path %></li>
             <!--<li><a href="#">Another action</a></li>
             <li><a href="#">Something else here</a></li>
             <li role="separator" class="divider"></li>
@@ -41,7 +41,7 @@
             <% end %>
             <% if logged_in? && current_author.admin? %>
               <li role="separator" class="divider"></li>
-              <li><%= link_to "+Add New Genre", new_genre_path %></li>
+              <li><%= link_to "Add New Genre", new_genre_path %></li>
             <% end %>
           </ul>
         </li>
@@ -52,7 +52,7 @@
         </div>
         <!-- <button type="submit" class="btn btn-default">Submit</button>-->
       </form>
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-right scn">
         <% if logged_in? %>
         <li class="dropdown color-me">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" 
@@ -66,7 +66,7 @@
                                 edit_author_path(current_author) %></li>
               <!--<li><a href="#">Something else here</a></li>-->
               <!--<li role="separator" class="divider"></li>-->
-              <hr />
+              <li role="separator" class="divider"></li>
               <li><%= link_to "Log out", logout_path, 
                                       method: :delete %></li>
             </ul>
